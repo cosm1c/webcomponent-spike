@@ -1,0 +1,8 @@
+/node_modules/
+/dist/
+/dist-staging/
+/.idea/
+/dist-e2e/
+/*.iml
+*.log
+.DS_Store
