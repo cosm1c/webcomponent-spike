@@ -3,7 +3,16 @@ WebComponent Spike
 
 Example project for developing Custom WebComponent v1.
 
-See package.json scripts for build features.
+`src` contains Custom Web Component.
+`staging` contains a simple test harness to show usage.
+
+# Quick Start
+
+    npm install && npm run clean && npm run build && npm run server-staging
+
+and then access [http://localhost:9000/](http://localhost:9000/)
+
+See package.json scripts for other build features.
 
 # Tech Stack
 

@@ -17,9 +17,24 @@ window.addEventListener('HTMLImportsLoaded', function (evt: Event) {
 
 window.addEventListener('WebComponentsReady', function (evt: Event) {
   console.debug('WebComponentsReady', evt);
+
+  const tickerElem = document.getElementById('ticker') as Ticker;
+  if (!tickerElem) {
+    throw new Error('No Ticker element found');
+  }
+
+  const sliderElem = document.getElementById('slider1') as HTMLInputElement;
+  if (!sliderElem) {
+    throw new Error('No Slider element found');
+  }
+
+  window.setInterval(() => {
+    const half = tickerElem.height / 2;
+    const value = half * Math.sin(window.performance.now() / (half * parseInt(sliderElem.value))) + half;
+    tickerElem.addTick({
+      value: Math.round(value),
+      strokeStyle: 'red'
+    });
+  }, 10);
 });
 
-const tickerElem = document.getElementById('ticker') as Ticker;
-if (!tickerElem) {
-  throw new Error('No Ticker element found');
-}

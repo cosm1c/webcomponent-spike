@@ -21,7 +21,7 @@ class TickItem {
  */
 export class Ticker extends HTMLElement {
 
-  private static readonly gradients = 15;
+  private static readonly gradients = 100;
 
   private readonly _ringBuffer: RingBuffer<TickItem> = new RingBuffer(1024);
 
@@ -108,11 +108,11 @@ export class Ticker extends HTMLElement {
         this._lastAnimationTimeStamp = now;
         // TODO: remove frameCount limit used for debugging
         this.frameCount++;
-        if (this.frameCount < 40) {
+        // if (this.frameCount < 40) {
           window.requestAnimationFrame(this.animateFrame);
-        } else {
-          console.info('Stopping animation due to frameCount limit hack');
-        }
+        // } else {
+        //   console.info('Stopping animation due to frameCount limit hack');
+        // }
       }
     };
 
@@ -146,8 +146,8 @@ export class Ticker extends HTMLElement {
       this._context2D.fillRect(
         this._width - (now - tickItem.timeStamp),
         this.valueWithinHeight(tickItem.tick.value),
-        1,
-        1
+        5,
+        5
       );
       return true;
     });

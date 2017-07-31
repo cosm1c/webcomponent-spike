@@ -15,3 +15,6 @@ Ticker.adoptedCallback = function () {
 };
 Ticker.adoptedCallback = function () {
 };
+Ticker.height = 1;
+Ticker.addTick = function () {
+};
